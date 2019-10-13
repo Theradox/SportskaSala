@@ -1,0 +1,259 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: lightslategray;
+}
+
+/* od tuka e za index */
+
+/* body-hero-image */
+.index-banner {
+    margin-top: 20px;
+    height: 500px;
+    width: 100%;
+    background-image: url("../Images/image-arena.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.index-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 100%;
+}
+
+.index-text {
+    display: flex;
+    opacity: 1;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.index-buttons a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+    .index-buttons a:hover {
+        color: white;
+        transition: all 100ms ease-in-out;
+    }
+
+.index-buttons {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    background-color: none;
+}
+
+.button1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    background: rgb(131,58,180);
+    background: linear-gradient(169deg, rgba(131,58,180,1) 0%, rgba(204,24,64,1) 0%, rgba(164,50,139,1) 0%, rgba(175,47,125,1) 0%, rgba(186,44,111,1) 0%, rgba(160,51,144,1) 0%, rgba(199,41,95,1) 0%, rgba(195,42,100,1) 0%, rgba(207,73,168,1) 0%, rgba(145,33,235,1) 0%, rgba(56,32,240,1) 0%, rgba(202,70,157,1) 0%, rgba(171,37,219,1) 0%, rgba(39,210,208,1) 0%, rgba(170,52,76,1) 0%, rgba(255,255,255,1) 0%, rgba(52,197,198,1) 57%, rgba(27,238,204,1) 100%);
+}
+
+.button2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background: rgb(131,58,180);
+    background: linear-gradient(169deg, rgba(131,58,180,1) 0%, rgba(204,24,64,1) 0%, rgba(164,50,139,1) 0%, rgba(175,47,125,1) 0%, rgba(186,44,111,1) 0%, rgba(160,51,144,1) 0%, rgba(199,41,95,1) 0%, rgba(195,42,100,1) 0%, rgba(207,73,168,1) 0%, rgba(145,33,235,1) 0%, rgba(56,32,240,1) 0%, rgba(202,70,157,1) 0%, rgba(171,37,219,1) 0%, rgba(39,210,208,1) 0%, rgba(170,52,76,1) 0%, rgba(255,255,255,1) 0%, rgba(52,197,198,1) 57%, rgba(27,238,204,1) 100%);
+    width: 200px;
+}
+
+
+
+
+/*/// do tuka e za index ///*/
+
+/* tuka e za povekje za nas/info */
+
+.about-main {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .about-main h4 {
+        color: white;
+    }
+
+.about-text ul {
+    list-style-type: none;
+}
+
+ul li a {
+    text-decoration: none;
+    color: navajowhite;
+}
+
+.about-text {
+    color: white;
+    text-decoration: none;
+    margin: 50px;
+    font-size: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+
+/* do tuka e za povekje za nas/info*/
+.main-contact {
+    background-color: green;
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parag {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: orange;
+    font-size: 50px;
+    align-items: center;
+    background-color: none;
+}
+
+
+.navi {
+    display: flex;
+    /*text-align: right;*/
+    justify-content: flex-end;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    background: rgb(131,58,180);
+    background: linear-gradient(169deg, rgba(131,58,180,1) 0%, rgba(204,24,64,1) 0%, rgba(164,50,139,1) 0%, rgba(175,47,125,1) 0%, rgba(186,44,111,1) 0%, rgba(160,51,144,1) 0%, rgba(199,41,95,1) 0%, rgba(195,42,100,1) 0%, rgba(207,73,168,1) 0%, rgba(145,33,235,1) 0%, rgba(56,32,240,1) 0%, rgba(202,70,157,1) 0%, rgba(171,37,219,1) 0%, rgba(39,210,208,1) 0%, rgba(170,52,76,1) 0%, rgba(255,255,255,1) 0%, rgba(52,197,198,1) 57%, rgba(27,238,204,1) 100%);
+}
+
+.menu {
+    margin: 0 30px 0 0;
+}
+
+    .menu a {
+        text-decoration: none;
+        color: antiquewhite;
+        font-size: 15px;
+        transition: all 100ms ease-in-out;
+        font-family: 'Ubuntu', sans-serif;
+        margin: 0 10px;
+        margin-top: 20px;
+    }
+
+        .menu a:hover {
+            color: white;
+        }
+
+hr.fancy-line {
+    border: 0;
+    height: 1px;
+    background: radial-gradient(circle, orange 19%, rgba(226,226,228,1) 72%);
+}
+
+
+
+
+
+@media only screen and (max-width: 200px) {
+    iframe {
+        /*width="750" height="450"*/
+        width: 300px;
+        height: 250px;
+    }
+
+    .menu {
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+
+        .menu a {
+            display: block;
+            border-bottom: 1px solid gray;
+        }
+}
+
+
+
+/* tuka e footer */
+.footer {
+    height: 300px;
+    width: 100%;
+    background: rgb(131,58,180);
+    background: linear-gradient(169deg, rgba(131,58,180,1) 0%, rgba(204,24,64,1) 0%, rgba(164,50,139,1) 0%, rgba(175,47,125,1) 0%, rgba(186,44,111,1) 0%, rgba(160,51,144,1) 0%, rgba(199,41,95,1) 0%, rgba(195,42,100,1) 0%, rgba(207,73,168,1) 0%, rgba(145,33,235,1) 0%, rgba(56,32,240,1) 0%, rgba(202,70,157,1) 0%, rgba(171,37,219,1) 0%, rgba(39,210,208,1) 0%, rgba(170,52,76,1) 0%, rgba(255,255,255,1) 0%, rgba(52,197,198,1) 57%, rgba(27,238,204,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-column {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+    .left-column a {
+        margin-right: 5px;
+        text-decoration: none;
+        color: antiquewhite;
+        transition: all 100ms ease-in-out;
+    }
+
+        .left-column a:hover {
+            color: white;
+        }
+
+.left-column-top {
+    width: 450px;
+}
+
+.left-column-bottom {
+    width: 450px;
+}
+
+.right-column {
+    height: 250px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

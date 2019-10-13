@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ReservationApp.Models.Reservation>
+
+@{
+    ViewBag.Title = "MyReservations";
+}
+
+<h2>My Reservations</h2>
+
+<ul>
+    @foreach(var res in Model)
+    {
+        <li>
+            @res.Event.Name | @res.NoOfTickets | @Html.ActionLink("Delete", "DeleteReservation", new { id = res.Id })
+        </li>
+    }
+</ul>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="~/Styles/StyleSheet.css" rel="stylesheet" />
+
+</head>
+<body>
+
+
+    <div class="navi is-overlay">
+        <div class="menu">
+            <a>@Html.ActionLink("Дома", "Index", "Home")</a>
+            <a>@Html.ActionLink("Настани", "Index", "Events")</a>
+            <a>@Html.ActionLink("Соопштенија", "Soopstenija", "Home")</a>
+            <a>@Html.ActionLink("Повеќе за нас", "About", "Home")</a>
+        </div>
+        @Html.Partial("_LoginPartial")
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />      @* ima linija tuka *@
+    </div>
+
+
+    <div class="footer">
+        <div class="left-column">
+            <div class="left-column-top">
+                <h4>СС Тоше Проески</h4>
+                <a>@Html.ActionLink("Дома", "Index", "Home")</a>
+                <a>@Html.ActionLink("Настани", "Index", "Events")</a>
+                <a>@Html.ActionLink("Соопштенија", "Index", "Home")</a>
+                <a>@Html.ActionLink("Повеќе за нас", "About", "Home")</a>
+            </div>
+            <br />
+            <div class="left-column-bottom">
+                <h4>Поврзете се со нас!</h4>
+                <a class="fa" href="https://www.facebook.com">&#xf082;  Facebook</a>
+                <a class="fa" href="http://instagram.com">&#xf16d;  Instagram</a>
+                <a class="fa" href="https://twitter.com">&#xf081;  Twitter</a>
+                <a class="fa" href="https://www.youtube.com">&#xf166;  YouTube</a>
+            </div>
+        </div>
+        <div class="right-column">
+            <div>
+                <iframe width="350" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=21.38617515563965%2C42.0055074121447%2C21.39894247055054%2C42.01135887648167&amp;layer=mapnik&amp;marker=42.00843321159265%2C21.392558813095093" style="border: 1px solid black">
+                    </iframe>
+                <br />
+                <small>
+                <a href="https://www.openstreetmap.org/?mlat=42.00843&amp;mlon=21.39256#map=17/42.00843/21.39256&amp;layers=N">Зголеми ја мапата</a>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

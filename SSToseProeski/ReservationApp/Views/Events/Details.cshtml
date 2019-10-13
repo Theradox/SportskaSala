@@ -1,0 +1,59 @@
+﻿@model ReservationApp.Models.EventTicketsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectedEvent.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectedEvent.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectedEvent.Organizator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectedEvent.Organizator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectedEvent.CurrentlyReserved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectedEvent.CurrentlyReserved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectedEvent.MaxCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectedEvent.MaxCapacity)
+        </dd>
+
+    </dl>
+</div>
+@using (Html.BeginForm("Reserve", "Events"))
+{
+    @Html.HiddenFor(model => model.SelectedEvent.Id)
+<div>
+    @Html.TextBoxFor(model => model.NoOfTickets, new { @Value = "1", type = "number", min = "1", max = "6" })
+    @Html.ValidationMessageFor(model => model.NoOfTickets)
+    <button type="submit" class="btn">Reserve</button>
+</div>
+}
+<p>
+    @Html.ActionLink("Edit", "Edit") |
+    @Html.ActionLink("Back to List", "Index")
+</p>
