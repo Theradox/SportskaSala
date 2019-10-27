@@ -206,6 +206,10 @@
     <Compile Include="Migrations\201910271643084_Modify Event Model.Designer.cs">
       <DependentUpon>201910271643084_Modify Event Model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910271854006_Add Date property to Event model.cs" />
+    <Compile Include="Migrations\201910271854006_Add Date property to Event model.Designer.cs">
+      <DependentUpon>201910271854006_Add Date property to Event model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -421,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910271643084_Modify Event Model.resx">
       <DependentUpon>201910271643084_Modify Event Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910271854006_Add Date property to Event model.resx">
+      <DependentUpon>201910271854006_Add Date property to Event model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

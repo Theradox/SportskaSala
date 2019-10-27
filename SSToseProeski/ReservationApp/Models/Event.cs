@@ -21,6 +21,10 @@ namespace ReservationApp.Models
         [Display(Name = "Организатор")]
         public string Organizator { get; set; }
         [Required]
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Датум")]
+        public DateTime? Date { get; set; }
+        [Required]
         [Range(0, 12000)]
         [Display(Name = "Цена на билет")]
         public int Price { get; set; }
