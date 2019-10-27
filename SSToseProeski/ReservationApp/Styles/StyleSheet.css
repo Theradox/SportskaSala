@@ -1,27 +1,32 @@
 ﻿* {
     margin: 0;
     padding: 0;
+    color:white;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: lightslategray;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,8,33,1) 0%, rgba(3,17,19,1) 0%, rgba(90,183,249,1) 50%, rgba(0,0,0,1) 100%);
+}
+hr{
+    margin:0;
+    padding:0;
 }
 
 /* od tuka e za index */
 
 /* body-hero-image */
 .index-banner {
-    margin-top: 20px;
-    height: 500px;
+    height: 620.3px;
     width: 100%;
-    background-image: url("../Images/image-arena.jpg");
+    background-image: url('../Images/backg-img.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
-    filter: alpha(opacity=50);
-    opacity: 0.5;
+   filter: alpha(opacity=50);
+    opacity: 0.885;
 }
 
 .index-flex {
@@ -30,12 +35,16 @@ body {
     align-items: center;
     height: 500px;
     width: 100%;
+    
 }
 
 .index-text {
     display: flex;
-    opacity: 1;
-    color: white;
+    filter: alpha(opacity=50);
+    opacity: 0.9;
+    background-color: lightgray;
+    color: black;
+    padding:10px;
     justify-content: center;
     align-items: center;
     font-size: 50px;
@@ -67,8 +76,8 @@ body {
     align-items: center;
     height: 50px;
     width: 200px;
-    background: rgb(131,58,180);
-    background: linear-gradient(169deg, rgba(131,58,180,1) 0%, rgba(204,24,64,1) 0%, rgba(164,50,139,1) 0%, rgba(175,47,125,1) 0%, rgba(186,44,111,1) 0%, rgba(160,51,144,1) 0%, rgba(199,41,95,1) 0%, rgba(195,42,100,1) 0%, rgba(207,73,168,1) 0%, rgba(145,33,235,1) 0%, rgba(56,32,240,1) 0%, rgba(202,70,157,1) 0%, rgba(171,37,219,1) 0%, rgba(39,210,208,1) 0%, rgba(170,52,76,1) 0%, rgba(255,255,255,1) 0%, rgba(52,197,198,1) 57%, rgba(27,238,204,1) 100%);
+    background-color: #163545;
+    border:double;
 }
 
 .button2 {
@@ -76,8 +85,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 50px;
-    background: rgb(131,58,180);
-    background: linear-gradient(169deg, rgba(131,58,180,1) 0%, rgba(204,24,64,1) 0%, rgba(164,50,139,1) 0%, rgba(175,47,125,1) 0%, rgba(186,44,111,1) 0%, rgba(160,51,144,1) 0%, rgba(199,41,95,1) 0%, rgba(195,42,100,1) 0%, rgba(207,73,168,1) 0%, rgba(145,33,235,1) 0%, rgba(56,32,240,1) 0%, rgba(202,70,157,1) 0%, rgba(171,37,219,1) 0%, rgba(39,210,208,1) 0%, rgba(170,52,76,1) 0%, rgba(255,255,255,1) 0%, rgba(52,197,198,1) 57%, rgba(27,238,204,1) 100%);
+    background-color: #163545;
+    border: double;
     width: 200px;
 }
 
@@ -157,8 +166,8 @@ ul li a {
     align-items: center;
     height: 70px;
     width: 100%;
-    background: rgb(131,58,180);
-    background: linear-gradient(169deg, rgba(131,58,180,1) 0%, rgba(204,24,64,1) 0%, rgba(164,50,139,1) 0%, rgba(175,47,125,1) 0%, rgba(186,44,111,1) 0%, rgba(160,51,144,1) 0%, rgba(199,41,95,1) 0%, rgba(195,42,100,1) 0%, rgba(207,73,168,1) 0%, rgba(145,33,235,1) 0%, rgba(56,32,240,1) 0%, rgba(202,70,157,1) 0%, rgba(171,37,219,1) 0%, rgba(39,210,208,1) 0%, rgba(170,52,76,1) 0%, rgba(255,255,255,1) 0%, rgba(52,197,198,1) 57%, rgba(27,238,204,1) 100%);
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,8,33,1) 0%, rgba(3,17,19,1) 0%, rgba(90,183,249,1) 50%, rgba(0,0,0,1) 100%);
 }
 
 .menu {
@@ -168,7 +177,7 @@ ul li a {
     .menu a {
         text-decoration: none;
         color: antiquewhite;
-        font-size: 15px;
+        font-size: 18px;
         transition: all 100ms ease-in-out;
         font-family: 'Ubuntu', sans-serif;
         margin: 0 10px;
@@ -214,11 +223,11 @@ hr.fancy-line {
 .footer {
     height: 300px;
     width: 100%;
-    background: rgb(131,58,180);
-    background: linear-gradient(169deg, rgba(131,58,180,1) 0%, rgba(204,24,64,1) 0%, rgba(164,50,139,1) 0%, rgba(175,47,125,1) 0%, rgba(186,44,111,1) 0%, rgba(160,51,144,1) 0%, rgba(199,41,95,1) 0%, rgba(195,42,100,1) 0%, rgba(207,73,168,1) 0%, rgba(145,33,235,1) 0%, rgba(56,32,240,1) 0%, rgba(202,70,157,1) 0%, rgba(171,37,219,1) 0%, rgba(39,210,208,1) 0%, rgba(170,52,76,1) 0%, rgba(255,255,255,1) 0%, rgba(52,197,198,1) 57%, rgba(27,238,204,1) 100%);
+    background-color: #163545;
     display: flex;
     align-items: center;
     justify-content: center;
+    color:white;
 }
 
 .left-column {
@@ -233,7 +242,7 @@ hr.fancy-line {
     .left-column a {
         margin-right: 5px;
         text-decoration: none;
-        color: antiquewhite;
+        color: white;
         transition: all 100ms ease-in-out;
     }
 
