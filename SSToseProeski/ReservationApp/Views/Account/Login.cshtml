@@ -2,13 +2,14 @@
 @model LoginViewModel
 @{
     ViewBag.Title = "Најави се!";
-
 }
+
 
 @*
     <h2>@ViewBag.Title.</h2>
 *@
-<div class="row">
+
+<div class="">
     <div class="col-md-8">
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -17,7 +18,6 @@
                 @*
                     <h4>Најавете се со локален акаунт</h4>
                 *@
-                <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
