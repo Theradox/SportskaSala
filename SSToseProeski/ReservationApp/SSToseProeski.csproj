@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201909151744125_Add Gender property to ApplicationUser model.Designer.cs">
       <DependentUpon>201909151744125_Add Gender property to ApplicationUser model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910271643084_Modify Event Model.cs" />
+    <Compile Include="Migrations\201910271643084_Modify Event Model.Designer.cs">
+      <DependentUpon>201910271643084_Modify Event Model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -413,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909151744125_Add Gender property to ApplicationUser model.resx">
       <DependentUpon>201909151744125_Add Gender property to ApplicationUser model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910271643084_Modify Event Model.resx">
+      <DependentUpon>201910271643084_Modify Event Model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

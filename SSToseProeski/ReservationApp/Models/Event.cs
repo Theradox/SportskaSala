@@ -11,16 +11,30 @@ namespace ReservationApp.Models
         public int Id { get; set; }
         [Required]
         [StringLength(80)]
-        //IMAGE
+        [Display(Name = "Име на настанот")]
         public string Name { get; set; }
         [Required]
+        [Display(Name = "Линк до слика")]
+        public String Image { get; set; }
+        [Required]
         [StringLength(80)]
+        [Display(Name = "Организатор")]
         public string Organizator { get; set; }
-        //PRICE
+        [Required]
+        [Range(0, 12000)]
+        [Display(Name = "Цена на билет")]
+        public int Price { get; set; }
+        [Required]
+        [DataType(DataType.DateTime)]
+        [Display(Name = "Датум на настанот")]
+        public DateTime? EventDate { get; set; }
+        [Required]
+        [StringLength(500)]
+        [Display(Name = "Опис")]
+        public String Description { get; set; }
         public int CurrentlyReserved { get; set; }
         [Required]
         [Range(0,30000)]
-        [Display(Name = "Maximum capacity")]
         public int MaxCapacity { get; set; }
         public virtual List<Reservation> Reservations { get; set; }
         public Event()
