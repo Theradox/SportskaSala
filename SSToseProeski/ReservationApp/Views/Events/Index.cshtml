@@ -4,51 +4,103 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<p>
-    @Html.ActionLink("My Reservations", "MyReservations")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Organizator)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrentlyReserved)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MaxCapacity)
-        </th>
-        <th></th>
-    </tr>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <p>
+        @Html.ActionLink("My Reservations", "MyReservations")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Organizator)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrentlyReserved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxCapacity)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Organizator)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrentlyReserved)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MaxCapacity)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Organizator)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentlyReserved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxCapacity)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    </table>*@
 
-</table>
+
+
+<div class="grid-two">
+    <div class="Cube1">
+        <div class="bak-img1">
+
+        </div>
+        <h3>Radioheaed</h3>
+        <p>
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+        </p>
+        <a href="#"><p>View more ></p></a>
+
+    </div>
+
+
+    <div class="Cube2">
+        <div class="bak-img2">
+
+        </div>
+        <h3>Radioheaed</h3>
+        <p>
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+        </p>
+        <a href="#"><p>View more ></p></a>
+    </div>
+
+    <div class="Cube3">
+        <div class="bak-img2">
+
+        </div>
+        <h3>Radioheaed</h3>
+        <p>
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+            ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+        </p>
+
+        <a href="#"><p>View more ></p></a>
+    </div>
+
+</div>
+
+
+
