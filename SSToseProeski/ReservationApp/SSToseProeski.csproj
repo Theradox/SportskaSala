@@ -233,6 +233,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\backg-img.jpg" />
     <Content Include="Images\image-arena.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Scripts\bootstrap-datepicker.js" />

@@ -217,6 +217,54 @@ hr.fancy-line {
         }
 }
 
+/* od tuka pocnuva soopstenija.cshtml */
+
+.grid-two {
+    display: grid;
+    background-color: gray;
+    height: 500px;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:auto;
+    padding: 70px;
+    grid-column-gap: 15px;
+    align-content: center;
+    text-align: center
+}
+
+
+
+.bak-img1 {
+    height:300px;
+    width:100%;
+    background-image: url('../Images/backg-img.jpg');
+
+}
+.bak-img2 {
+    height: 300px;
+    width: 100%;
+    background-image: url('../Images/backg-img.jpg');
+}
+.bak-img3 {
+    height: 300px;
+    width: 100%;
+    background-image: url('../Images/backg-img.jpg');
+}
+.Cube1{
+    border:double;
+}
+.Cube2 {
+    border: double;
+}
+.Cube3 {
+    border: double;
+}
+
+.grid-two h4,p{
+    margin-left:5px;
+    font-size:15px;
+}
+
 
 
 /* tuka e footer */
