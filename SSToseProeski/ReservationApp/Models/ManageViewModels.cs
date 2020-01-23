@@ -78,6 +78,16 @@ namespace ReservationApp.Models
         public string PhoneNumber { get; set; }
     }
 
+    public class AddToRoleModel
+    {
+        [Required]
+        [Display(Name = "Е-пошта")]
+        public string Email { get; set; }
+        public List<string> roles { get; set; }
+        [Display(Name = "Улога")]
+        public string selectedRole { get; set; }
+    }
+
     public class ConfigureTwoFactorViewModel
     {
         public string SelectedProvider { get; set; }

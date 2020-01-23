@@ -16,10 +16,10 @@
 
     <div class="navi is-overlay">
         <div class="menu">
-            <a>@Html.ActionLink("Дома", "Index", "Home")</a>
-            <a>@Html.ActionLink("Настани", "Index", "Events")</a>
-            <a>@Html.ActionLink("Соопштенија", "Soopstenija", "Home")</a>
-            <a>@Html.ActionLink("Повеќе за нас", "About", "Home")</a>
+            @Html.ActionLink("Дома", "Index", "Home")
+            @Html.ActionLink("Настани", "Index", "Events")
+            @Html.ActionLink("Соопштенија", "Soopstenija", "Home")
+            @Html.ActionLink("Повеќе за нас", "About", "Home")
         </div>
         @Html.Partial("_LoginPartial")
     </div>
@@ -37,10 +37,10 @@
         <div class="left-column">
             <div class="left-column-top">
                 <h4>СС Тоше Проески</h4>
-                <a>@Html.ActionLink("Дома", "Index", "Home")</a>
-                <a>@Html.ActionLink("Настани", "Index", "Events")</a>
-                <a>@Html.ActionLink("Соопштенија", "Soopstenija", "Home")</a>
-                <a>@Html.ActionLink("Повеќе за нас", "About", "Home")</a>
+                @Html.ActionLink("Дома", "Index", "Home")
+                @Html.ActionLink("Настани", "Index", "Events")
+                @Html.ActionLink("Соопштенија", "Soopstenija", "Home")
+                @Html.ActionLink("Повеќе за нас", "About", "Home")
             </div>
             <br />
             <div class="left-column-bottom">
@@ -67,4 +67,3 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
-

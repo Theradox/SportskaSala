@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
@@ -20,6 +21,25 @@ namespace ReservationApp.Controllers
 
         public AccountController()
         {
+        }
+
+        public ActionResult AddUserToRole()
+        {
+            AddToRoleModel model = new AddToRoleModel();
+            model.roles = new List<string>() { "Admin", "Employee" };
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult AddUserToRole(AddToRoleModel model)
+        {
+            var user = UserManager.FindByEmail(model.Email);
+            if(user == null)
+            {
+                throw new HttpException(404, "Не постои корисник со следната Е-пошта: " + model.Email);
+            }
+            UserManager.AddToRole(user.Id, model.selectedRole);
+            return RedirectToAction("Index", "Home");
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
