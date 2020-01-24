@@ -1,20 +1,68 @@
 ﻿@model IEnumerable<ReservationApp.Models.Reservation>
 
 @{
-    ViewBag.Title = "MyReservations";
+    ViewBag.Title = "Резервации";
 }
 
 <h2>My Reservations</h2>
 
-<ul>
-    @foreach(var res in Model)
-    {
-        <li>
-            @res.Event.Name | @res.NoOfTickets | @Html.ActionLink("Delete", "DeleteReservation", new { id = res.Id })
-        </li>
-    }
-</ul>
+<div style="width: 98%">
+    <table id="restab" class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Настан")
+                </th>
+                <th>
+                    @Html.DisplayName("Број на карти")
+                </th>
+                <th>
+                    @Html.DisplayName("Опции")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var res in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => res.Event.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => res.NoOfTickets)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Детали", "Details", new { id = res.Event.Id }) |
+                        <button res-id="@res.Id" class="btn btn-danger js-delete">Откажи</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var table = $("#restab").DataTable();
+            $("#restab .js-delete").on("click", function () {
+                var button = $(this);
+                bootbox.confirm("Дали сте сигурни дека сакате да ја откажете резервацијата?!", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/Events/DeleteReservation/" + button.attr("res-id"),
+                            method: "GET",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>    
+}

@@ -18,6 +18,10 @@
         <div class="menu">
             @Html.ActionLink("Дома", "Index", "Home")
             @Html.ActionLink("Настани", "Index", "Events")
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Мои резервации", "MyReservations", "Events")
+            }
             @Html.ActionLink("Соопштенија", "Soopstenija", "Home")
             @Html.ActionLink("Повеќе за нас", "About", "Home")
         </div>

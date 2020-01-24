@@ -4,6 +4,7 @@
 @*
     <h4>Најавете се преку друг сервис!</h4>
 *@
+<br />
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
     if (loginProviders.Count() == 0) {

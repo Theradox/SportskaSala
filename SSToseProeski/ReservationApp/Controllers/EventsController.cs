@@ -171,6 +171,10 @@ namespace ReservationApp.Controllers
                 return HttpNotFound();
             }
             ApplicationUser user = db.Users.Find(reservation.User.Id);
+            if(!User.Identity.GetUserId().Equals(user.Id))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             Event selectedEvent = db.Events.Find(reservation.Event.Id);
             user.Reservations.Remove(reservation);
             selectedEvent.Reservations.Remove(reservation);
