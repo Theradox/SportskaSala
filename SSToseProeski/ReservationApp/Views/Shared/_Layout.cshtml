@@ -22,7 +22,9 @@
             {
                 @Html.ActionLink("Мои резервации", "MyReservations", "Events")
             }
-            @Html.ActionLink("Соопштенија", "Soopstenija", "Home")
+            @{
+                //Html.ActionLink("Соопштенија", "Soopstenija", "Home")}
+            }
             @Html.ActionLink("Повеќе за нас", "About", "Home")
         </div>
         @Html.Partial("_LoginPartial")
@@ -44,7 +46,9 @@
                 <h4>СС Тоше Проески</h4>
                 @Html.ActionLink("Дома", "Index", "Home")
                 @Html.ActionLink("Настани", "Index", "Events")
-                @Html.ActionLink("Соопштенија", "Soopstenija", "Home")
+                @{
+                    //Html.ActionLink("Соопштенија", "Soopstenija", "Home")
+                }
                 @Html.ActionLink("Повеќе за нас", "About", "Home")
             </div>
             <br />

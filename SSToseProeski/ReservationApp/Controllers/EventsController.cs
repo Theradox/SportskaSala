@@ -50,6 +50,10 @@ namespace ReservationApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Organizator,CurrentlyReserved,MaxCapacity,Image,Price,Description,EventDate")] Event @event)
         {
+            var errors = ModelState
+                .Where(x => x.Value.Errors.Count > 0)
+                .Select(x => new { x.Key, x.Value.Errors })
+                .ToArray();
             if (ModelState.IsValid)
             {
                 @event.CurrentlyReserved = 0;

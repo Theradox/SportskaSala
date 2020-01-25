@@ -59,7 +59,13 @@
             </div>
         </div>
 
-        @Html.HiddenFor(model => model.CurrentlyReserved, htmlAttributes: new { value = '0' })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CurrentlyReserved, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CurrentlyReserved, htmlAttributes: new { @class = "form-control", value = 0 })
+                @Html.ValidationMessageFor(model => model.CurrentlyReserved, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.Label("Максимален капацитет", htmlAttributes: new { @class = "control-label col-md-2", @for = "MaxCapacity" })
@@ -85,7 +91,6 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
-        $('#EventDate').attr('data-date-format', 'dd/mm/yyyy');
         $(function () {
             $('.datepicker').datepicker();
         });

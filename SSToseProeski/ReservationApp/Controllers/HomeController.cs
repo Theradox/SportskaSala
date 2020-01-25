@@ -27,10 +27,11 @@ namespace ReservationApp.Controllers
 
             return View();
         }
-        */
+        
         public ActionResult Soopstenija()
         {
             return View();
         }
+        */
     }
 }

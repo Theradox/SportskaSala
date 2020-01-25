@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201910271858193_Fix Event model.Designer.cs">
       <DependentUpon>201910271858193_Fix Event model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001251619295_Revert.cs" />
+    <Compile Include="Migrations\202001251619295_Revert.Designer.cs">
+      <DependentUpon>202001251619295_Revert.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Event.cs" />
@@ -673,6 +677,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910271858193_Fix Event model.resx">
       <DependentUpon>201910271858193_Fix Event model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001251619295_Revert.resx">
+      <DependentUpon>202001251619295_Revert.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
