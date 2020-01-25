@@ -3,52 +3,53 @@
 @{
     ViewBag.Title = "Резервации";
 }
+    <div class="body-content">
+        <h2>Мои резервации</h2>
+        <br />
 
-<h2>My Reservations</h2>
-
-<div style="width: 98%">
-    <table id="restab" class="table table-bordered">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayName("Настан")
-                </th>
-                <th>
-                    @Html.DisplayName("Број на карти")
-                </th>
-                <th>
-                    @Html.DisplayName("Опции")
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var res in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => res.Event.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => res.NoOfTickets)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Детали", "Details", new { id = res.Event.Id }) |
-                        <button res-id="@res.Id" class="btn btn-danger js-delete">Откажи</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+        <div>
+            <table id="restab" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayName("Настан")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Број на карти")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Опции")
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var res in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => res.Event.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => res.NoOfTickets)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Детали", "Details", new { id = res.Event.Id }, new { @class = "btn btn-default" }) |
+                                <button res-id="@res.Id" class="btn btn-danger js-delete">Откажи</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 @section Scripts{
     <script>
         $(document).ready(function () {
-            var table = $("#restab").DataTable();
+            var table = $("#restab").DataTable({
+                "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
+                "iDisplayLength": 5
+            });
             $("#restab .js-delete").on("click", function () {
                 var button = $(this);
                 bootbox.confirm("Дали сте сигурни дека сакате да ја откажете резервацијата?!", function (result) {

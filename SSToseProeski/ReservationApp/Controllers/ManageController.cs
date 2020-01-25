@@ -99,6 +99,7 @@ namespace ReservationApp.Controllers
             return RedirectToAction("ManageLogins", new { Message = message });
         }
 
+        /*
         //
         // GET: /Manage/AddPhoneNumber
         public ActionResult AddPhoneNumber()
@@ -129,6 +130,7 @@ namespace ReservationApp.Controllers
             }
             return RedirectToAction("VerifyPhoneNumber", new { PhoneNumber = model.Number });
         }
+        */
 
         //
         // POST: /Manage/EnableTwoFactorAuthentication
@@ -160,6 +162,7 @@ namespace ReservationApp.Controllers
             return RedirectToAction("Index", "Manage");
         }
 
+        /*
         //
         // GET: /Manage/VerifyPhoneNumber
         public async Task<ActionResult> VerifyPhoneNumber(string phoneNumber)
@@ -321,6 +324,7 @@ namespace ReservationApp.Controllers
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
+        */
 
         protected override void Dispose(bool disposing)
         {

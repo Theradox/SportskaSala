@@ -52,6 +52,7 @@ namespace ReservationApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                @event.CurrentlyReserved = 0;
                 db.Events.Add(@event);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -80,7 +81,7 @@ namespace ReservationApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Organizator,CurrentlyReserved,MaxCapacity")] Event @event)
+        public ActionResult Edit([Bind(Include = "Id,Name,Organizator,CurrentlyReserved,MaxCapacity,Image,Price,Description,EventDate")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +92,7 @@ namespace ReservationApp.Controllers
             return View(@event);
         }
 
+        /*
         // GET: Events/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -105,6 +107,7 @@ namespace ReservationApp.Controllers
             }
             return View(@event);
         }
+        */
 
         // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -122,6 +125,7 @@ namespace ReservationApp.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
         [Authorize]
         [HttpPost]
         public ActionResult Reserve(EventTicketsViewModel viewModel)

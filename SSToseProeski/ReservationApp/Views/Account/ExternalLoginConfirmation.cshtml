@@ -16,15 +16,20 @@
     *@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <br />
-    <p class="">
+    <p class="col-md-6 col-lg-offset-1">
         @*
             You've successfully authenticated with <strong>@ViewBag.LoginProvider</strong>.
             Please enter the following information and click the Register button to finish
             logging in.
         *@
         Успешно се автентициравте со <strong>@ViewBag.LoginProvider</strong>. Ве молиме внесете
-        ги следниве информации и претиснете на "Регистрирај се" копчето за да ја комплетирате најавата.
+        ги следниве информации и претиснете на копчето "Продолжи" за да ја комплетирате најавата.
     </p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     @Html.HiddenFor(m => m.Email)
     <div class="form-group">
         @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
@@ -63,7 +68,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Регистрирај се" />
+            <input type="submit" class="btn btn-default" value="Продолжи" />
         </div>
     </div>
 }
@@ -71,6 +76,7 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
+        $('#DateOfBirth').attr('data-date-format', 'dd/mm/yyyy');
         $(function () {
             $('.datepicker').datepicker();
         });
