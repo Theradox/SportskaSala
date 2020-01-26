@@ -14,8 +14,8 @@
 else
 {
     <div class="menu">
-        @Html.ActionLink("Регистрирај се", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
-        @Html.ActionLink("Најави се", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        @Html.ActionLink("Регистрирај се", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-primary", style = "margin: 0px;" })
+        @Html.ActionLink("Најави се", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-default", style = "margin: 0px; color: #2e6da4;" })
     </div>
 }
 

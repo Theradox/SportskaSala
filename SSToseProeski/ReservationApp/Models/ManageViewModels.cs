@@ -81,6 +81,7 @@ namespace ReservationApp.Models
     public class AddToRoleModel
     {
         [Required]
+        [EmailAddress]
         [Display(Name = "Е-пошта")]
         public string Email { get; set; }
         public List<string> roles { get; set; }

@@ -55,6 +55,7 @@ namespace ReservationApp.Controllers
 
         //
         // GET: /Account/AddUserToRole
+        [Authorize(Roles = "Admin")]
         public ActionResult AddUserToRole()
         {
             AddToRoleModel model = new AddToRoleModel();
@@ -65,6 +66,7 @@ namespace ReservationApp.Controllers
         //
         // POST: /Account/AddUserToRole
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddUserToRole(AddToRoleModel model)
         {
             var user = UserManager.FindByEmail(model.Email);
