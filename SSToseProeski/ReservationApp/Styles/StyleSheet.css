@@ -13,8 +13,21 @@ hr {
     margin:0;
     padding:0;
 }
+a{
+    text-decoration:none;
+}
 
 /* od tuka e za index */
+
+.hamburger {
+    background-image: url('../Images/baseline_list_black_18dp.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+
+
 
 /* body-hero-image */
 .index-banner {
@@ -103,9 +116,9 @@ hr {
     align-items: center;
 }
 
-    .about-main h4 {
-        color: white;
-    }
+.about-main h4 {
+    color: white;
+}
 
 .about-text ul {
     list-style-type: none;
@@ -173,19 +186,19 @@ ul li a {
     margin: 0 30px 0 0;
 }
 
-    .menu a {
-        text-decoration: none;
-        color: antiquewhite;
-        font-size: 18px;
-        transition: all 100ms ease-in-out;
-        font-family: 'Ubuntu', sans-serif;
-        margin: 0 10px;
-        margin-top: 20px;
-    }
+.menu a {
+    text-decoration: none;
+    color: antiquewhite;
+    font-size: 18px;
+    transition: all 100ms ease-in-out;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0 10px;
+    margin-top: 20px;
+}
 
-        .menu a:hover {
-            color: white;
-        }
+.menu a:hover {
+    color: white;
+}
 
 hr.fancy-line {
     border: 0;
@@ -203,6 +216,7 @@ hr.fancy-line {
         width: 300px;
         height: 250px;
     }
+
 
     .menu {
         text-align: center;
@@ -341,6 +355,9 @@ a {
     margin: 50px;
 }
 
+
+
+
 .Cube {
     border: double;
     border-color: antiquewhite;
@@ -356,13 +373,49 @@ a {
         margin: 10px;
         text-align: center;
     }
+    .navbar{
+        display:none;
+    }
 
 @media screen and (max-width: 767.98px) {
     .grid-two {
         display: inline-block;
         width: auto;
     }
+    .about-map h4{
+    }
+    .about-main{
+        display:block;
+        margin:50px;
+    }
+    .about-text {
+        display: inline;
+    }
+    .table td{
+        display:block;
+    }
+    /*.table{
+        display:block;
+    }*/
+    .event-details {
+        display: block;
+    }
+    .hoho {
+        display: none;
+    }
+    
     .Cube {
         margin: 15px;
+    }
+    .my-reservation{
+        display:block;
+    }
+    .navi{
+        display:none;
+    }
+    .navbar{
+        display:block;
+        float:left;
+        
     }
 }

@@ -214,21 +214,13 @@
     <Compile Include="Migrations\201910271858193_Fix Event model.Designer.cs">
       <DependentUpon>201910271858193_Fix Event model.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001251619295_Revert.cs" />
-    <Compile Include="Migrations\202001251619295_Revert.Designer.cs">
-      <DependentUpon>202001251619295_Revert.cs</DependentUpon>
+    <Compile Include="Migrations\202001261823080_kkk.cs" />
+    <Compile Include="Migrations\202001261823080_kkk.Designer.cs">
+      <DependentUpon>202001261823080_kkk.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001251838565_lastOne.cs" />
-    <Compile Include="Migrations\202001251838565_lastOne.Designer.cs">
-      <DependentUpon>202001251838565_lastOne.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001251901313_Ili ne.cs" />
-    <Compile Include="Migrations\202001251901313_Ili ne.Designer.cs">
-      <DependentUpon>202001251901313_Ili ne.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001251908176_Changes.cs" />
-    <Compile Include="Migrations\202001251908176_Changes.Designer.cs">
-      <DependentUpon>202001251908176_Changes.cs</DependentUpon>
+    <Compile Include="Migrations\202001261831175_MissingXXX.cs" />
+    <Compile Include="Migrations\202001261831175_MissingXXX.Designer.cs">
+      <DependentUpon>202001261831175_MissingXXX.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -416,8 +408,10 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\backg-img.jpg" />
+    <Content Include="Images\baseline_list_black_18dp.png" />
     <Content Include="Images\image-arena.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\stadium-arena-sport-complex-rome-512.png" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
@@ -691,17 +685,11 @@
     <EmbeddedResource Include="Migrations\201910271858193_Fix Event model.resx">
       <DependentUpon>201910271858193_Fix Event model.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001251619295_Revert.resx">
-      <DependentUpon>202001251619295_Revert.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001261823080_kkk.resx">
+      <DependentUpon>202001261823080_kkk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001251838565_lastOne.resx">
-      <DependentUpon>202001251838565_lastOne.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001251901313_Ili ne.resx">
-      <DependentUpon>202001251901313_Ili ne.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001251908176_Changes.resx">
-      <DependentUpon>202001251908176_Changes.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001261831175_MissingXXX.resx">
+      <DependentUpon>202001261831175_MissingXXX.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
