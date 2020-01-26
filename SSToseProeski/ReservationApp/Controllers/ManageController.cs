@@ -50,6 +50,7 @@ namespace ReservationApp.Controllers
             }
         }
 
+        /*
         //
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
@@ -74,6 +75,7 @@ namespace ReservationApp.Controllers
             };
             return View(model);
         }
+        */
 
         //
         // POST: /Manage/RemoveLogin

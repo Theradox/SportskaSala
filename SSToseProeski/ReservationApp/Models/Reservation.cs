@@ -12,6 +12,7 @@ namespace ReservationApp.Models
         public virtual Event Event { get; set; }
         public virtual ApplicationUser User { get; set; }
         public int NoOfTickets { get; set; }
+        public bool Paid { get; set; }
         public Reservation() { }
         public Reservation(Event selectedEvent, ApplicationUser user, int noOfTickets)
         {

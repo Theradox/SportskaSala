@@ -6,8 +6,8 @@
     @Html.AntiForgeryToken()
 
     <div class="menu">
-        @Html.ActionLink("" + User.Identity.GetUserName() + "", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        <a href="javascript:document.getElementById('logoutForm').submit()">Одјави се</a>
+        @Html.Label(User.Identity.GetUserName(), htmlAttributes: new { style = "margin-top: 10px; margin-right: 20px; font-size: 18px;" })
+        <a class="btn btn-danger" style="margin: 0px;" href="javascript:document.getElementById('logoutForm').submit()">Одјави се</a>
     </div>
     }
 }

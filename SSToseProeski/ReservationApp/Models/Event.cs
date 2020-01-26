@@ -29,6 +29,9 @@ namespace ReservationApp.Models
         [Display(Name = "Датум")]
         public DateTime? EventDate { get; set; }
         [Required]
+        [Display(Name = "Почеток")]
+        public String EventTime { get; set; }
+        [Required]
         [StringLength(500)]
         [Display(Name = "Опис")]
         public String Description { get; set; }

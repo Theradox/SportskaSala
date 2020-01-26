@@ -20,11 +20,11 @@ hr {
 .index-banner {
     height: 620.3px;
     width: 100%;
-    background-image: url('../Images/backg-img.jpg');
+    background-image: url('../Images/HomeImg.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
-   filter: alpha(opacity=50);
+    filter: alpha(opacity=50);
     opacity: 0.885;
 }
 
@@ -334,3 +334,35 @@ a {
     #restab_wrapper tr, th {
         text-align: center;
     }
+
+.index-buttons a {
+    text-decoration: none;
+    color: antiquewhite;
+    margin: 50px;
+}
+
+.Cube {
+    border: double;
+    border-color: antiquewhite;
+}
+
+    .Cube p {
+        font-size: 15px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .Cube h2 {
+        margin: 10px;
+        text-align: center;
+    }
+
+@media screen and (max-width: 767.98px) {
+    .grid-two {
+        display: inline-block;
+        width: auto;
+    }
+    .Cube {
+        margin: 15px;
+    }
+}

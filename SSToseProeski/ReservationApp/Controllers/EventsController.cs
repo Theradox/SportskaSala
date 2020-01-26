@@ -40,7 +40,8 @@ namespace ReservationApp.Controllers
         // GET: Events/Create
         public ActionResult Create()
         {
-            return View();
+            Event @event = new Event();
+            return View(@event);
         }
 
         // POST: Events/Create
@@ -48,7 +49,7 @@ namespace ReservationApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Organizator,CurrentlyReserved,MaxCapacity,Image,Price,Description,EventDate")] Event @event)
+        public ActionResult Create([Bind(Include = "Id,Name,Organizator,CurrentlyReserved,MaxCapacity,Image,Price,Description,EventDate,EventTime")] Event @event)
         {
             var errors = ModelState
                 .Where(x => x.Value.Errors.Count > 0)
@@ -85,7 +86,7 @@ namespace ReservationApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Organizator,CurrentlyReserved,MaxCapacity,Image,Price,Description,EventDate")] Event @event)
+        public ActionResult Edit([Bind(Include = "Id,Name,Organizator,CurrentlyReserved,MaxCapacity,Image,Price,Description,EventDate,EventTime")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -115,8 +116,8 @@ namespace ReservationApp.Controllers
 
         // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        //[ValidateAntiForgeryToken]
+        public void DeleteConfirmed(int id)
         {
             Event @event = db.Events.Find(id);
             for(int i = @event.Reservations.Count - 1; i >= 0; i--)
@@ -127,7 +128,6 @@ namespace ReservationApp.Controllers
             }
             db.Events.Remove(@event);
             db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         [Authorize]
@@ -157,8 +157,9 @@ namespace ReservationApp.Controllers
             selectedEvent.CurrentlyReserved += viewModel.NoOfTickets; 
             db.Reservations.Add(newReservation);
             db.SaveChanges();
-            return RedirectToAction("Details", new { id = viewModel.SelectedEvent.Id }); 
+            return RedirectToAction("Index"); 
         }
+
         [Authorize]
         public ActionResult MyReservations()
         {
@@ -166,6 +167,7 @@ namespace ReservationApp.Controllers
             IEnumerable<Reservation> model = user.Reservations;
             return View(model);
         }
+
         [Authorize]
         public ActionResult DeleteReservation(int? id)
         {

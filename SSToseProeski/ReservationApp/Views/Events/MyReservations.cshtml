@@ -3,10 +3,10 @@
 @{
     ViewBag.Title = "Резервации";
 }
+    <br />
     <div class="body-content">
         <h2>Мои резервации</h2>
         <br />
-
         <div>
             <table id="restab" class="table table-bordered">
                 <thead>
@@ -33,7 +33,7 @@
                                 @Html.DisplayFor(modelItem => res.NoOfTickets)
                             </td>
                             <td>
-                                @Html.ActionLink("Детали", "Details", new { id = res.Event.Id }, new { @class = "btn btn-default" }) |
+                                @Html.ActionLink("Детали", "Details", new { id = res.Event.Id }, new { @class = "btn btn-primary" }) |
                                 <button res-id="@res.Id" class="btn btn-danger js-delete">Откажи</button>
                             </td>
                         </tr>
@@ -42,7 +42,9 @@
             </table>
         </div>
     </div>
-
+    <br />
+    <br />
+    
 @section Scripts{
     <script>
         $(document).ready(function () {
