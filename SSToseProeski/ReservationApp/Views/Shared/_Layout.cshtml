@@ -25,6 +25,10 @@
                 //Html.ActionLink("Соопштенија", "Soopstenija", "Home")}
             }
             @Html.ActionLink("Повеќе за нас", "About", "Home")
+            @if (User.IsInRole("Employee") || User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Плаќање", "Plakjanje", "Events")
+            }
         </div>
         @Html.Partial("_LoginPartial")
     </div>

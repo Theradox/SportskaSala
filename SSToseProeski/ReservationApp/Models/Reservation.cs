@@ -19,6 +19,7 @@ namespace ReservationApp.Models
             Event = selectedEvent;
             User = user;
             NoOfTickets = noOfTickets;
+            Paid = false;
         }
     }
 }

@@ -37,6 +37,7 @@ namespace ReservationApp.Controllers
             return View(viewModel);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Events/Create
         public ActionResult Create()
         {
@@ -49,6 +50,7 @@ namespace ReservationApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "Id,Name,Organizator,CurrentlyReserved,MaxCapacity,Image,Price,Description,EventDate,EventTime")] Event @event)
         {
             var errors = ModelState
@@ -67,6 +69,7 @@ namespace ReservationApp.Controllers
         }
 
         // GET: Events/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -86,13 +89,14 @@ namespace ReservationApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "Id,Name,Organizator,CurrentlyReserved,MaxCapacity,Image,Price,Description,EventDate,EventTime")] Event @event)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = @event.Id });
             }
             return View(@event);
         }
@@ -117,6 +121,7 @@ namespace ReservationApp.Controllers
         // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public void DeleteConfirmed(int id)
         {
             Event @event = db.Events.Find(id);
@@ -151,12 +156,15 @@ namespace ReservationApp.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "You've already made a reservation pal.");
                 }
             }
-            Reservation newReservation = new Reservation(selectedEvent, user, viewModel.NoOfTickets);
-            selectedEvent.Reservations.Add(newReservation);
-            user.Reservations.Add(newReservation);
-            selectedEvent.CurrentlyReserved += viewModel.NoOfTickets; 
-            db.Reservations.Add(newReservation);
-            db.SaveChanges();
+            if(selectedEvent.EventDate > DateTime.Now)
+            {
+                Reservation newReservation = new Reservation(selectedEvent, user, viewModel.NoOfTickets);
+                selectedEvent.Reservations.Add(newReservation);
+                user.Reservations.Add(newReservation);
+                selectedEvent.CurrentlyReserved += viewModel.NoOfTickets;
+                db.Reservations.Add(newReservation);
+                db.SaveChanges();
+            }
             return RedirectToAction("Index"); 
         }
 
@@ -186,12 +194,51 @@ namespace ReservationApp.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Event selectedEvent = db.Events.Find(reservation.Event.Id);
-            user.Reservations.Remove(reservation);
-            selectedEvent.Reservations.Remove(reservation);
-            selectedEvent.CurrentlyReserved -= reservation.NoOfTickets;
-            db.Reservations.Remove(reservation);
-            db.SaveChanges();
+            if(reservation.Event.EventDate > DateTime.Now)
+            {
+                user.Reservations.Remove(reservation);
+                selectedEvent.Reservations.Remove(reservation);
+                selectedEvent.CurrentlyReserved -= reservation.NoOfTickets;
+                db.Reservations.Remove(reservation);
+                db.SaveChanges();
+            }
             return RedirectToAction("MyReservations");
+        }
+
+        [Authorize (Roles = "Admin,Employee")]
+        public ActionResult Plakjanje(int? id)
+        {
+            Reservation res = null;
+            if (id != null)
+            {
+                res = db.Reservations.Find(id);
+                if(res == null)
+                {
+                    ViewBag.Message = "Не е пронајден запис";
+                }
+            }
+            return View(res);
+        }
+
+        [Authorize(Roles = "Admin,Employee")]
+        public ActionResult Plati(int? id)
+        {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Reservation res = db.Reservations.Find(id);
+            if(res == null)
+            {
+                return HttpNotFound();
+            }
+            if(res.Event.EventDate > DateTime.Now)
+            {
+                res.Paid = true;
+                db.SaveChanges();
+            }
+            int? temp = id;
+            return RedirectToAction("Plakjanje", new { id = temp });
         }
 
         protected override void Dispose(bool disposing)

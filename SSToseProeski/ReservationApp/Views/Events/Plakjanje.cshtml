@@ -1,0 +1,44 @@
+﻿@model ReservationApp.Models.Reservation
+
+@{
+    ViewBag.Title = "Плаќање";
+}
+
+<h2>Plakjanje</h2>
+<input id="srch" type="search" />
+<button id="searchBtn">Пребарај</button>
+
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
+
+@if (Model != null)
+{
+    <p>@Model.Id</p>
+    <p>@Model.User.UserName</p>
+    <p>@Model.Event.Name</p>
+    <p>@Model.Event.Organizator</p>
+    <p>@(Model.Event.Price * Model.NoOfTickets)</p>
+    <p>@(Model.Paid ? "Платено" : Model.Event.EventDate < DateTime.Now ? "Неподигната" : "Не е платено")</p>
+    if (!Model.Paid && Model.Event.EventDate >= DateTime.Now)
+    {
+        using (Html.BeginForm("Plati", "Events", new { id = Model.Id}))
+        {
+            <button type="submit">Плати</button>
+        }
+    }
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#searchBtn").on("click", function () {
+                var id = $("#srch").val();
+                if (id == parseInt(id)) {
+                    window.location.href = "/Events/Plakjanje/" + id;
+                }
+            });
+        });
+    </script>
+}

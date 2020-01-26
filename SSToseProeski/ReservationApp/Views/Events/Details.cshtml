@@ -4,59 +4,66 @@
     ViewBag.Title = "Настани";
 }
 
-<div style="width: 70%; margin-left: 15%; text-align: center;">
-    <h1>@Html.DisplayFor(model => model.SelectedEvent.Name)</h1>
-    <br />
-    <div style="width: 45%; display: inline; float: left;">
-        <table class="table table-responsive" style="color: white; font-size: 18px; font-weight: 600;">
-            <tr>
-                <td>Организатор</td>
-                <td>@Model.SelectedEvent.Organizator</td>
-            </tr>
-            <tr>
-                <td>Цена на билет</td>
-                <td>@Model.SelectedEvent.Price</td>
-            </tr>
-            <tr>
-                <td>Датум</td>
-                <td>@Model.SelectedEvent.EventDate.ToString().Split(' ')[0]</td>
-            </tr>
-            <tr>
-                <td>Почеток</td>
-                <td>@Model.SelectedEvent.EventTime</td>
-            </tr>
-            <tr>
-                <td>Опис</td>
-                <td>@Model.SelectedEvent.Description</td>
-            </tr>
-            <tr>
-                <td>Преостанати карти</td>
-                <td>@(Model.SelectedEvent.MaxCapacity - Model.SelectedEvent.CurrentlyReserved)</td>
-            </tr>
-        </table>
-        @Html.ActionLink("Промени", "Edit", new { id = Model.SelectedEvent.Id }, new { @class = "btn btn-primary" }) |
-        <button id="btnDelete" class = "btn btn-danger">Избриши</button>
-    </div>
-    <div style="display: inline;">
-        <div>
-            <img style="width: 45%; height: 320px" src="@Model.SelectedEvent.Image" />
+    <div style="width: 70%; margin-left: 15%; text-align: center; color: white;">
+        <h1>@Html.DisplayFor(model => model.SelectedEvent.Name)</h1>
+        <br />
+        <div style="width: 45%; display: inline; float: left;">
+            <table class="table table-responsive" style="font-size: 18px; font-weight: 600;">
+                <tr>
+                    <td>Организатор</td>
+                    <td>@Model.SelectedEvent.Organizator</td>
+                </tr>
+                <tr>
+                    <td>Цена на билет</td>
+                    <td>@Model.SelectedEvent.Price</td>
+                </tr>
+                <tr>
+                    <td>Датум</td>
+                    <td>@Model.SelectedEvent.EventDate.ToString().Split(' ')[0]</td>
+                </tr>
+                <tr>
+                    <td>Почеток</td>
+                    <td>@Model.SelectedEvent.EventTime</td>
+                </tr>
+                <tr>
+                    <td>Опис</td>
+                    <td>@Model.SelectedEvent.Description</td>
+                </tr>
+                <tr>
+                    <td>Преостанати карти</td>
+                    <td>@(Model.SelectedEvent.MaxCapacity - Model.SelectedEvent.CurrentlyReserved)</td>
+                </tr>
+            </table>
+            @if (User.IsInRole("Admin"))
+            {
+                Html.ActionLink("Промени", "Edit", new { id = Model.SelectedEvent.Id }, new { @class = "btn btn-primary" });
+                <span>|</span>
+                <button id="btnDelete" class="btn btn-danger">Избриши</button>
+            }
         </div>
-    </div>
-
-    <br />
-
-    <div>
-        @using (Html.BeginForm("Reserve", "Events"))
-        {
-            @Html.HiddenFor(model => model.SelectedEvent.Id)
+        <div style="display: inline;">
             <div>
-                @Html.TextBoxFor(model => model.NoOfTickets, new { @Value = "1", type = "number", min = "1", max = "6", style = "color: black; align" })
-                @Html.ValidationMessageFor(model => model.NoOfTickets)
-                <button type="submit" class="btn btn-success btn-lg">Резервирај!</button>
+                <img style="width: 45%; height: 320px" src="@Model.SelectedEvent.Image" />
+            </div>
+        </div>
+
+        <br />
+
+        @if (Model.SelectedEvent.EventDate > DateTime.Now)
+        {
+            <div>
+                @using (Html.BeginForm("Reserve", "Events"))
+                {
+                    @Html.HiddenFor(model => model.SelectedEvent.Id)
+                    <div>
+                        @Html.TextBoxFor(model => model.NoOfTickets, new { @Value = "1", type = "number", min = "1", max = "6", style = "color: black; align" })
+                        @Html.ValidationMessageFor(model => model.NoOfTickets)
+                        <button type="submit" class="btn btn-success btn-lg">Резервирај!</button>
+                    </div>
+                }
             </div>
         }
     </div>
-</div>
 
 @Html.ActionLink("Назад кон листата", "Index", new { }, new { @class = "btn btn-default", style = "margin: 10px;" })
 
@@ -64,7 +71,7 @@
     <script>
         $(document).ready(function () {
             $('#btnDelete').on('click', function () {
-                bootbox.confirm("Дали сте сигурен дека сакате да го избришете настанот?", function (result) {
+                bootbox.confirm("Дали сте сигурни дека сакате да го избришете настанот?", function (result) {
                     if (result) {
                         $.post('/Events/Delete/' + @Model.SelectedEvent.Id, {}, function () {
                             window.location.href = '/Events'

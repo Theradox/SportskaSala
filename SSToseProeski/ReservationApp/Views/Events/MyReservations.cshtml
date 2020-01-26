@@ -12,6 +12,9 @@
                 <thead>
                     <tr>
                         <th>
+                            @Html.DisplayName("Код")
+                        </th>
+                        <th>
                             @Html.DisplayName("Настан")
                         </th>
                         <th>
@@ -27,6 +30,9 @@
                     {
                         <tr>
                             <td>
+                                @Html.DisplayFor(modelItem => res.Id)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => res.Event.Name)
                             </td>
                             <td>
@@ -34,7 +40,18 @@
                             </td>
                             <td>
                                 @Html.ActionLink("Детали", "Details", new { id = res.Event.Id }, new { @class = "btn btn-primary" }) |
-                                <button res-id="@res.Id" class="btn btn-danger js-delete">Откажи</button>
+                                @if (res.Paid)
+                                {
+                                    <span style="color: lawngreen;">ПЛАТЕНА</span>
+                                }
+                                else if (res.Event.EventDate < DateTime.Now)
+                                {
+                                    <span style="color: red;">НЕПОДИГНАТА</span>
+                                }
+                                else
+                                {
+                                    <button res-id="@res.Id" class="btn btn-danger js-delete">Откажи</button>
+                                }
                             </td>
                         </tr>
                     }

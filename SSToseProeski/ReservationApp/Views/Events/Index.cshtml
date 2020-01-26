@@ -4,6 +4,11 @@
     ViewBag.Title = "Настани";
 }
 
+@if (User.IsInRole("Admin"))
+{
+    <button id="createBtn" style="margin-top: 20px; margin-left: 8%;" class="btn btn-lg btn-success">Креирај нов настан</button>
+}
+
 @*<h2>Index</h2>
 
     <p>
@@ -52,66 +57,76 @@
     }
     </table>*@
 
-        <div class="grid-two">
-            @foreach (var e in Model)
-            {
-                <div class="Cube">
-                    <div>
-                        <img class="bak-img" src="@e.Image"/>
-                    </div>
-                    <h3>@e.Name</h3>
-                    <p style="height: 102px; overflow: hidden; text-overflow: ellipsis;">
-                        @e.Description
-                    </p>
-                    <a class="btn btn-default" style="font-size: 15px; margin: 10px" href="/Events/Details/@e.Id">Види повеќе...</a>
+<div class="grid-two">
+    @foreach (var e in Model)
+    {
+        <div class="Cube">
+            <div>
+                <img class="bak-img" src="@e.Image" />
+            </div>
+            <h3>@e.Name</h3>
+            <p style="height: 102px; overflow: hidden; text-overflow: ellipsis;">
+                @e.Description
+            </p>
+            <a class="btn btn-default" style="font-size: 15px; margin: 10px" href="/Events/Details/@e.Id">Види повеќе...</a>
 
-                </div>
-            }
-            @*
-                <div class="Cube">
-                    <div class="bak-img">
-
-                    </div>
-                    <h3>Radioheaed</h3>
-                    <p>
-                        ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
-                        ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
-                        ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
-                        ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
-                    </p>
-                    <a href="#"><p>View more ></p></a>
-
-                </div>
-
-                <div class="Cube">
-                    <div class="bak-img">
-
-                    </div>
-                    <h3>Radioheaed</h3>
-                    <p>
-                        ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
-                        ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
-                        ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
-                        ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
-                    </p>
-                    <a href="#"><p>View more ></p></a>
-                </div>
-
-                <div class="Cube">
-                    <div class="bak-img">
-
-                    </div>
-                    <h3>Radioheaed</h3>
-                    <p>
-                        SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg
-                        SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg 
-                        SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg
-                        SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg 
-                        SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg
-                        SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg 
-
-                    </p>
-                    <a href="#"><p>View more ></p></a>
-                </div>
-            *@
         </div>
+    }
+    @*
+        <div class="Cube">
+            <div class="bak-img">
+
+            </div>
+            <h3>Radioheaed</h3>
+            <p>
+                ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+                ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+                ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+                ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+            </p>
+            <a href="#"><p>View more ></p></a>
+
+        </div>
+
+        <div class="Cube">
+            <div class="bak-img">
+
+            </div>
+            <h3>Radioheaed</h3>
+            <p>
+                ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+                ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+                ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+                ajnfaksjdnjasdnkjasndkjnaskdjaskjdnkajsdnkjasdnkjasdnkjasdnkjadsnkadsjn
+            </p>
+            <a href="#"><p>View more ></p></a>
+        </div>
+
+        <div class="Cube">
+            <div class="bak-img">
+
+            </div>
+            <h3>Radioheaed</h3>
+            <p>
+                SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg
+                SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg
+                SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg
+                SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg
+                SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg
+                SnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDoggSnoopDogg
+
+            </p>
+            <a href="#"><p>View more ></p></a>
+        </div>
+    *@
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#createBtn").on("click", function () {
+                window.location.href = "/Events/Create";
+            });
+        });
+    </script>
+}
