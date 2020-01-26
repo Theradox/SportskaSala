@@ -26,21 +26,31 @@
                     <td>@Model.SelectedEvent.EventTime</td>
                 </tr>
                 <tr>
-                    <td>Опис</td>
-                    <td>@Model.SelectedEvent.Description</td>
-                </tr>
-                <tr>
                     <td>Преостанати карти</td>
                     <td>@(Model.SelectedEvent.MaxCapacity - Model.SelectedEvent.CurrentlyReserved)</td>
                 </tr>
             </table>
+            @if (Model.SelectedEvent.EventDate > DateTime.Now)
+            {
+                <div>
+                    @using (Html.BeginForm("Reserve", "Events"))
+                    {
+                        @Html.HiddenFor(model => model.SelectedEvent.Id)
+                        <div>
+                            @Html.TextBoxFor(model => model.NoOfTickets, new { @class = "form-control", @Value = "1", type = "number", min = "1", max = "6", style = "color: black; width: 70px; display: inline;" })
+                            @Html.ValidationMessageFor(model => model.NoOfTickets)
+                            <button type="submit" class="btn btn-success btn-lg">Резервирај!</button>
+                        </div>
+                    }
+                </div>
+            }
+            <br />
             @if (User.IsInRole("Admin"))
             {
                 @Html.ActionLink("Промени", "Edit", new { id = Model.SelectedEvent.Id }, new { @class = "btn btn-primary" });
                 <span>|</span>
                 <button id="btnDelete" class="btn btn-danger">Избриши</button>
             }
-
         </div>
         <div style="display: inline;">
             <div>
@@ -49,20 +59,6 @@
         </div>
 
         <br />
-        @if (Model.SelectedEvent.EventDate > DateTime.Now)
-        {
-            <div>
-                @using (Html.BeginForm("Reserve", "Events"))
-                {
-                    @Html.HiddenFor(model => model.SelectedEvent.Id)
-                    <div>
-                        @Html.TextBoxFor(model => model.NoOfTickets, new { @Value = "1", type = "number", min = "1", max = "6", style = "color: black; align" })
-                        @Html.ValidationMessageFor(model => model.NoOfTickets)
-                        <button type="submit" class="btn btn-success btn-lg">Резервирај!</button>
-                    </div>
-                }
-            </div>
-        }
 
     </div>
 
