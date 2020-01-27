@@ -11,14 +11,9 @@
     <link rel="shortcut icon" href="~/Images/Beer.ico" />
 </head>
 <body>
-
-    <div>
-    </div>
-
+    <img id="logo" src="~/Images/stadium-arena-sport-complex-rome-512.png"/>
     <div class="navi is-overlay">
-
         <div class="menu">
-            <img src="~/Images/stadium-arena-sport-complex-rome-512.png" style="height:25px; width:25px; float:left;align-content:center;" />
 
             @Html.ActionLink("Дома", "Index", "Home")
             @Html.ActionLink("Настани", "Index", "Events")
@@ -34,20 +29,13 @@
             {
                 @Html.ActionLink("Плаќање", "Plakjanje", "Events")
             }
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Улоги", "AddUserToRole", "Account")
+            }
         </div>
         @Html.Partial("_LoginPartial")
     </div>
-
-
-
-
-
-
-
-
-
-
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler list_button" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             @*<img src="~/Images/baseline_list_black_18dp.png" />*@
@@ -82,27 +70,11 @@
     </nav>
     <hr class="nova-linija" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="">
         @RenderBody()
         <br />
         <hr class="hoho" hoho="hoho" />      @* ima linija tuka *@
     </div>
-
-
     <div class="footer">
         <div class="left-column">
             <div class="left-column-top">
@@ -133,7 +105,6 @@
             </div>
         </div>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

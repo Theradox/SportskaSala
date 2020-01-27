@@ -165,7 +165,7 @@ namespace ReservationApp.Controllers
                 db.Reservations.Add(newReservation);
                 db.SaveChanges();
             }
-            return RedirectToAction("Index"); 
+            return RedirectToAction("MyReservations"); 
         }
 
         [Authorize]

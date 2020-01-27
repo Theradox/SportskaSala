@@ -8,26 +8,30 @@
         <h1>@Html.DisplayFor(model => model.SelectedEvent.Name)</h1>
         <br />
         <div style="width: 45%; display: inline; float: left;">
-            <table class="table table-responsive" style="font-size: 18px; font-weight: 600;">
+            <table class="table table-responsive" style="font-size: 18px;">
                 <tr>
-                    <td>Организатор</td>
+                    <td class="table-title">Организатор</td>
                     <td>@Model.SelectedEvent.Organizator</td>
                 </tr>
                 <tr>
-                    <td>Цена на билет</td>
+                    <td class="table-title">Цена на билет</td>
                     <td>@Model.SelectedEvent.Price</td>
                 </tr>
                 <tr>
-                    <td>Датум</td>
+                    <td class="table-title">Датум</td>
                     <td>@Model.SelectedEvent.EventDate.ToString().Split(' ')[0]</td>
                 </tr>
                 <tr>
-                    <td>Почеток</td>
+                    <td class="table-title">Почеток</td>
                     <td>@Model.SelectedEvent.EventTime</td>
                 </tr>
                 <tr>
-                    <td>Преостанати карти</td>
+                    <td class="table-title">Преостанати карти</td>
                     <td>@(Model.SelectedEvent.MaxCapacity - Model.SelectedEvent.CurrentlyReserved)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
                 </tr>
             </table>
             @if (Model.SelectedEvent.EventDate > DateTime.Now)
@@ -37,7 +41,7 @@
                     {
                         @Html.HiddenFor(model => model.SelectedEvent.Id)
                         <div>
-                            @Html.TextBoxFor(model => model.NoOfTickets, new { @class = "form-control", @Value = "1", type = "number", min = "1", max = "6", style = "color: black; width: 70px; display: inline;" })
+                            @Html.TextBoxFor(model => model.NoOfTickets, new { @class = "form-control", @Value = "1", type = "number", min = "1", max = "6", style = "color: black; width: 70px; height: 44px; display: inline; text-align: center;" })
                             @Html.ValidationMessageFor(model => model.NoOfTickets)
                             <button type="submit" class="btn btn-success btn-lg">Резервирај!</button>
                         </div>
@@ -61,7 +65,8 @@
         <br />
 
     </div>
-
+<br />
+<br />
 @Html.ActionLink("Назад кон листата", "Index", new { }, new { @class = "btn btn-default", style = "margin: 10px;" })
 
 @section Scripts{

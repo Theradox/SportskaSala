@@ -4,31 +4,112 @@
     ViewBag.Title = "Плаќање";
 }
 
-<h2>Plakjanje</h2>
-<input id="srch" type="search" />
-<button id="searchBtn">Пребарај</button>
-
-@if (ViewBag.Message != null)
-{
-    <p>@ViewBag.Message</p>
-}
-
-@if (Model != null)
-{
-    <p>@Model.Id</p>
-    <p>@Model.User.UserName</p>
-    <p>@Model.Event.Name</p>
-    <p>@Model.Event.Organizator</p>
-    <p>@(Model.Event.Price * Model.NoOfTickets)</p>
-    <p>@(Model.Paid ? "Платено" : Model.Event.EventDate < DateTime.Now ? "Неподигната" : "Не е платено")</p>
-    if (!Model.Paid && Model.Event.EventDate >= DateTime.Now)
+<br />
+<div style="margin-left: 15%;">
+    <h2>Плаќање</h2>
+    <br />
+    <div>
+        <input id="srch" class="form-control" style="display: inline; margin-right: 10px;" type="search" placeholder="Внеси код..." />
+        <button id="searchBtn" class="btn btn-default">Пребарај</button>
+    </div>
+    @if (ViewBag.Message != null)
     {
-        using (Html.BeginForm("Plati", "Events", new { id = Model.Id}))
+        <br />
+        <p style="font-size: 19px; font-weight: 700;">@ViewBag.Message</p>
+        for (int i = 0; i < 9; i++)
         {
-            <button type="submit">Плати</button>
+            <br />
         }
     }
-}
+    else if (Model != null)
+    {
+        <br />
+        <table class="table" style="color: white; width: 30%; font-size: 17px;">
+            <tr>
+                <td class="table-title">
+                    Код
+                </td>
+                <td>
+                    @Model.Id
+                </td>
+            </tr>
+            <tr>
+                <td class="table-title">
+                    Име на корисник
+                </td>
+                <td>
+                    @Model.User.UserName
+                </td>
+            </tr>
+            <tr>
+                <td class="table-title">
+                    Име на настан
+                </td>
+                <td>
+                    @Model.Event.Name
+                </td>
+            </tr>
+            <tr>
+                <td class="table-title">
+                    Датум и време
+                </td>
+                <td>
+                    @(Model.Event.EventDate.ToString().Split(' ')[0] + "   " + Model.Event.EventTime)
+                </td>
+            </tr>
+            <tr>
+                <td class="table-title">
+                    Организатор
+                </td>
+                <td>
+                    @Model.Event.Organizator
+                </td>
+            </tr>
+            <tr>
+                <td class="table-title">
+                    Број на карти
+                </td>
+                <td>
+                    @Model.NoOfTickets
+                </td>
+            </tr>
+            <tr>
+                <td class="table-title">
+                    Цена за наплата
+                </td>
+                <td>
+                    @(Model.Event.Price * Model.NoOfTickets)
+                </td>
+            </tr>
+            <tr>
+                <td class="table-title">
+                    Статус
+                </td>
+                <td>
+                    @(Model.Paid ? "Платено" : Model.Event.EventDate < DateTime.Now ? "Неподигната" : "Не е платено")
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        if (!Model.Paid && Model.Event.EventDate >= DateTime.Now)
+        {
+            using (Html.BeginForm("Plati", "Events", new { id = Model.Id }))
+            {
+                <button style="height: 40px; width: 100px;" class="btn btn-danger" type="submit">Плати</button>
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i < 12; i++)
+        {
+            <br />
+        }
+    }
+</div>
 
 @section Scripts{
     <script type="text/javascript">
